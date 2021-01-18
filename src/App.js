@@ -25,10 +25,15 @@ function Body () {
 
 class Header extends Component {
   render() {
+    
     return (
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Junaed Abed</h1>
+        <h1 className="App-title">{this.props.title}</h1>
+        <div>{this.props.myObj.a}</div>
+        <div>{this.props.myArr[0]}</div>
+        <div>{this.props.myFunc(10, 12)}</div>
+        
         <Body />
         <a
           className="App-link"
@@ -44,9 +49,19 @@ class Header extends Component {
 }
 
 function App() {
+  
   return (
     <div className="App">
-      <Header />
+      <Header 
+        title="Hello World"
+        myArr={[0,2,3]}
+        myFunc={(a, b) => a + b}
+        myObj={{
+          a: 5,
+          b: 1
+        }}/>
+        
+      {/* <Header title="Hello World 2" num={5}/> */}
     </div>
   );
 }

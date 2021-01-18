@@ -1,14 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
+// const Body = () => (
+//   <p>
+//     Edit <code>src/App.js</code> and save to reload.
+//   </p>
+// );
+// const Body = () => {
+//   return(
+//     <p>
+//       Edit <code>src/App.js</code> and save to reload.
+//     </p>
+//   );
+// };
+
+function Body () {
+  return(
+    <p>
+      Edit <code>src/App.js</code> and save to reload.
+    </p>
+  );
+}
+
+class Header extends Component {
+  render() {
+    return (
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1 className="App-title">Junaed Abed</h1>
+        <Body />
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -18,6 +39,14 @@ function App() {
           Learn React
         </a>
       </header>
+    );
+  }
+}
+
+function App() {
+  return (
+    <div className="App">
+      <Header />
     </div>
   );
 }

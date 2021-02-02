@@ -10,49 +10,52 @@ export default class MyForm extends React.Component{
     }
     
     handleChange = (event) => {
-       
-        this.setState({name: event.target.value});
-    };
-    
-    handleChangeForPet = (event) => {
-       
-        this.setState({fvrtPet: event.target.value});
-    };
-    
-    handleChangeCheckBox = (event) => {
-       
-        this.setState({rememMe: event.target.checked});
-    };
-    
-    handleSelect = (event) => {
         
-        this.setState({title: event.target.value});
+        const isCheckbox = event.target.type === 'checkbox';
+        this.setState({[event.target.name]: isCheckbox ? event.target.checked : event.target.value});
     };
     
     handleSubmit = (event) => {
-        
+        event.preventDefault();
         console.log(this.state);
     };
     
     render() {
         return(
-            <div>
-                <input value={this.state.name} onChange={this.handleChange}/>
+            <form onSubmit={this.handleSubmit}>
+                <input 
+                    name="name"
+                    value={this.state.name} 
+                    onChange={this.handleChange}
+                />
                 
-                <textarea value={this.state.fvrtPet} onChange={this.handleChangeForPet}/>
+                <textarea 
+                    name="fvrtPet"
+                    value={this.state.fvrtPet} 
+                    onChange={this.handleChange}
+                />
                 
-                <input type="checkbox" checked={this.state.rememMe} onChange={this.handleChangeCheckBox} />
+                <input 
+                    name="rememMe"
+                    type="checkbox" 
+                    checked={this.state.rememMe} 
+                    onChange={this.handleChange} 
+                />
                 
                 <div>
-                    <select value={this.state.title} onChange={this.handleSelect}>
+                    <select 
+                        name="title"
+                        value={this.state.title} 
+                        onChange={this.handleChange}
+                    >
                         <option value="Mr">Mr.</option>
                         <option value="Ms">Ms.</option>
                         <option value="Mrs">Mrs.</option>
                     </select>
                 </div>
-                <button onClick={this.handleSubmit}>Submit</button>
+                <button type="submit">Submit</button>
                 
-            </div>
+            </form>
         ); 
             
     }

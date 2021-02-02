@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Component } from "react";
+import ValidationForm from './components/ValidationForm';
 
-import MyForm from './components/MyForm';
 
 class App extends Component {
   
@@ -13,7 +13,7 @@ class App extends Component {
     
     return (
       <div className="App">
-        <MyForm />
+        <ValidationForm />
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import './App.css';
 import React, { Component } from "react";
-import ValidationForm from './components/ValidationForm';
+// import ValidationForm from './components/ValidationForm';
+import FetchRandomUser from './components/FetchRandomUser';
 
 
 class App extends Component {
@@ -13,7 +14,7 @@ class App extends Component {
     
     return (
       <div className="App">
-        <ValidationForm />
+        <FetchRandomUser />
       </div>
     );
   }
